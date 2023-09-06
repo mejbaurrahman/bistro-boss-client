@@ -5,10 +5,13 @@ export default function NavBar() {
   const navOptions = <>
   <li className="uppercase"><Link to='/'>Home</Link></li>
   <li className="uppercase"><Link to='/menu'>Our Menu</Link></li>
+  <li className="uppercase"><Link to='/order/salad'>Our Order</Link></li>
+  <li className="uppercase"><Link to='/login'>Login</Link></li>
+  <li className="uppercase"><Link to='/signup'>Sign Up</Link></li>
   </>
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar fixed bg-slate-100 text-black md:w-[1140px] mx-auto z-10">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

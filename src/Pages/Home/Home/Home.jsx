@@ -7,7 +7,6 @@ import ItemCategory from "../ItemCategory/ItemCategory";
 import PopularItems from "../PopularItems/PopularItems";
 import Testimonials from "../Testimonials/Testimonials";
 
-
 export default function Home() {
   return (
     <div>

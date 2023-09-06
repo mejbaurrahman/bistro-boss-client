@@ -27,16 +27,16 @@ export default function OurMenu() {
       <Cover img={menuImg} title={'OUR MENU'}></Cover>
         <SectionTitle subHeading={`Don't miss`} heading={`Today's Offer`}></SectionTitle>
         {/* offered menu items */}
-        <MenuCategory items={offered} buttonName={'order your fevorite food'}></MenuCategory>
+        <MenuCategory items={offered}></MenuCategory>
         {/* dessert menu items */}
         <MenuCategory items={dessert}
-        title={'Dessert'}
+        title={'dessert'}
         coverImg={dessertImg}
         buttonName={'order your fevorite food'}></MenuCategory>
        
         {/* salads menu items */}
         <MenuCategory items={salad}
-        title={'salads'}
+        title={'salad'}
         coverImg={saladImg}
         buttonName={'order your fevorite food'}></MenuCategory>
          {/* pizza menu items */}
@@ -46,7 +46,7 @@ export default function OurMenu() {
         buttonName={'order your fevorite food'}></MenuCategory>
          {/* soup menu items */}
          <MenuCategory items={soup}
-        title={'soups'}
+        title={'soup'}
         coverImg={soupImg}
         buttonName={'order your fevorite food'}></MenuCategory>
          {/* drinks menu items */}
