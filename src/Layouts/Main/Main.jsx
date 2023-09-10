@@ -4,7 +4,7 @@ import Footer from "../../Shared/Footer/Footer";
 
 export default function Main() {
   const location = useLocation()
-  const noHeaderAndFooter = location.pathname.includes('login');
+  const noHeaderAndFooter = location.pathname.includes('login') || location.pathname.includes('signup');
   return (
     <div>
         {noHeaderAndFooter || <NavBar></NavBar>}

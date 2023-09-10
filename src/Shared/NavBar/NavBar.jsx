@@ -1,13 +1,29 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { AuthContext } from "../../Context/AuthProvider"
+import {FaShoppingCart} from 'react-icons/fa';
 
 export default function NavBar() {
+  const {user, logOut} = useContext(AuthContext);
+
 
   const navOptions = <>
   <li className="uppercase"><Link to='/'>Home</Link></li>
   <li className="uppercase"><Link to='/menu'>Our Menu</Link></li>
   <li className="uppercase"><Link to='/order/salad'>Our Order</Link></li>
-  <li className="uppercase"><Link to='/login'>Login</Link></li>
-  <li className="uppercase"><Link to='/signup'>Sign Up</Link></li>
+  <li className="uppercase"><Link to='/secret'>Secret</Link></li>
+  <li className="uppercase"><button className="btn">
+  <FaShoppingCart></FaShoppingCart>
+  <div className="badge badge-secondary">+0</div>
+</button></li>
+  
+  {
+    user ? <button onClick={logOut} className="btn btn-neutral">Logout</button>:
+    
+    <><li className="uppercase"><Link to='/login'>Login</Link></li>
+    <li className="uppercase"><Link to='/signup'>Sign Up</Link></li></>
+  }
+  
   </>
 
   return (
