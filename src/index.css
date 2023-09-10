@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dashbord-heading{
+    color: var(--Dark-01, #151515);
+font-family: Cinzel;
+
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 6.647px;
+}
