@@ -37,6 +37,7 @@ export default function FoodCard({item}) {
               .catch(function (error) {
                 console.log(error);
               })
+              
            
         }else{
             Swal.fire({

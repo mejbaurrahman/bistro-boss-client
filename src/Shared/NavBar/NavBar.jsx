@@ -2,9 +2,11 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../Context/AuthProvider"
 import {FaShoppingCart} from 'react-icons/fa';
+import useCart from "../../Hooks/useCart";
 
 export default function NavBar() {
   const {user, logOut} = useContext(AuthContext);
+  const [cart] = useCart();
 
 
   const navOptions = <>
@@ -14,7 +16,7 @@ export default function NavBar() {
   <li className="uppercase"><Link to='/secret'>Secret</Link></li>
   <li className="uppercase"><button className="btn">
   <FaShoppingCart></FaShoppingCart>
-  <div className="badge badge-secondary">+0</div>
+  <div className="badge badge-secondary">{cart?.length}</div>
 </button></li>
   
   {
@@ -27,7 +29,7 @@ export default function NavBar() {
   </>
 
   return (
-    <div className="navbar fixed bg-slate-100 text-black md:w-[1140px] mx-auto z-10">
+    <div className="navbar fixed bg-slate-100 bg-opacity-50 text-black md:w-[1140px] mx-auto z-10">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
