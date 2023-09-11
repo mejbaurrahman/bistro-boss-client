@@ -1,6 +1,6 @@
-import { FaHome } from "react-icons/fa";
-import { TfiMenuAlt } from "react-icons/tfi";
-import { Link, Outlet } from "react-router-dom";
+import { FaCalendarAlt, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa";
+
+import { NavLink, Outlet } from "react-router-dom";
 
 
 
@@ -19,10 +19,40 @@ export default function Dashbord() {
         {/* Sidebar content here */}
         <h2 className="uppercase text-2xl text-center font-bold">Bistro boss</h2>
         <h5 className="dashbord-heading uppercase text-sm text-center font-semibold mb-6">Restaurant</h5>
-        <li className="uppercase text-center"><Link to='/dashbord/userhome'><FaHome></FaHome>Admin Home</Link></li>
-        <li className="uppercase text-center"><Link to='/dashbord/'><TfiMenuAlt></TfiMenuAlt>Manage Item</Link></li>
-        <li className="uppercase text-center"><Link to='/dashbord/userhome'><FaHome></FaHome>Admin Home</Link></li>
-        <li><a>Sidebar Item 2</a></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord'
+        
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaHome></FaHome>User Home</NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaCalendarAlt></FaCalendarAlt>Reservation</NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaWallet></FaWallet>Payment History</NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/mycart'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaShoppingCart></FaShoppingCart>My Cart</NavLink></li>
+        
       </ul>
     
     </div>
