@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
 import { useContext } from "react";
 
+import axios from "axios";
+
 
 
 
@@ -23,10 +25,20 @@ export default function SignUp() {
       .then(result=>{
         console.log(result.user)
         updateUser(data.name, data.photoUrl)
-        .then(r=>{
-        
-          navigate('/')
-          console.log(r.user)
+        .then(()=>{
+          
+          const userData = {email: data.email, name: data.name, image: data.photoUrl}
+          axios.post('http://localhost:5000/users', userData)
+          .then(function (response) {
+            if(response.data.insertedId){
+              console.log(response)
+             
+              navigate('/')
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         }).catch(error=> console.log(error.message))
       }).catch(error=>console.log(error.message))
   }
