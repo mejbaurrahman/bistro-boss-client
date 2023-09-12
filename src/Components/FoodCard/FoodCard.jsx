@@ -3,11 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useCart from "../../Hooks/useCart";
 
 
 
 export default function FoodCard({item}) {
     const {name, recipe, image, price} = item;
+    const [, refetch] = useCart();
     const location = useLocation()
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
@@ -33,6 +35,7 @@ export default function FoodCard({item}) {
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  refetch();
               })
               .catch(function (error) {
                 console.log(error);
