@@ -5,6 +5,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha,  } from 'react
 import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import SocialLogin from "../../../Components/SocialLogin/SocialLogin";
 
 export default function Login() {
   const location = useLocation();
@@ -81,6 +82,8 @@ const handleCapcha =(e)=>{
       <div>
           <p>Create a new account? <Link to='/signup'>Sign Up</Link></p>
         </div>
+
+        <SocialLogin></SocialLogin>
     </div>
   </div>
 </div>
