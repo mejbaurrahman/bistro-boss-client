@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaEnvelope, FaHome, FaShoppingBag, FaShoppingCart, FaWallet } from "react-icons/fa";
+import { FaBook, FaCalendarAlt, FaCalendarCheck, FaEnvelope, FaHome, FaList, FaShoppingBag, FaShoppingCart, FaStar,  FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import {TfiMenuAlt} from 'react-icons/tfi'
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
@@ -7,6 +7,8 @@ import useCart from "../../Hooks/useCart";
 
 export default function Dashbord() {
   const [cart, ] = useCart()
+
+  const isAdmin = false;
   return (
     <div className="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -21,7 +23,56 @@ export default function Dashbord() {
         {/* Sidebar content here */}
         <h2 className="uppercase text-2xl text-center font-bold">Bistro boss</h2>
         <h5 className="dashbord-heading uppercase text-sm text-center font-semibold mb-6">Restaurant</h5>
-        <li className="uppercase text-center"><NavLink to='/dashbord'
+
+        {
+          isAdmin ? <>
+          <li className="uppercase text-center"><NavLink to='/dashbord/admin'
+        
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaHome></FaHome>Admin Home</NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/additems'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaUtensils></FaUtensils>Add Items</NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/manageitems'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaList></FaList>Manage Items</NavLink></li>
+        
+        <li className="uppercase text-center"><NavLink to='/dashbord/managebooking'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaBook></FaBook>Manage Bookings 
+        
+        </NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/allusers'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaUsers></FaUsers> All Users
+        </NavLink></li>
+          </>: <>
+          <li className="uppercase text-center"><NavLink to='/dashbord/user'
         
         style={({ isActive, isPending }) => {
           return {
@@ -30,7 +81,7 @@ export default function Dashbord() {
           };
         }}
         ><FaHome></FaHome>User Home</NavLink></li>
-        <li className="uppercase text-center"><NavLink to='/dashbord/'
+        <li className="uppercase text-center"><NavLink to='/dashbord/reservation'
         style={({ isActive, isPending }) => {
           return {
             fontWeight: isActive ? "bold" : "",
@@ -38,7 +89,7 @@ export default function Dashbord() {
           };
         }}
         ><FaCalendarAlt></FaCalendarAlt>Reservation</NavLink></li>
-        <li className="uppercase text-center"><NavLink to='/dashbord/'
+        <li className="uppercase text-center"><NavLink to='/dashbord/paymenthistory'
         style={({ isActive, isPending }) => {
           return {
             fontWeight: isActive ? "bold" : "",
@@ -56,6 +107,27 @@ export default function Dashbord() {
         ><FaShoppingCart></FaShoppingCart>My Cart 
         <div className="badge badge-secondary">{cart?.length}</div>
         </NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/addreview'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaStar></FaStar> Add Review</NavLink></li>
+        <li className="uppercase text-center"><NavLink to='/dashbord/mybooking'
+        style={({ isActive, isPending }) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "white",
+          };
+        }}
+        ><FaCalendarCheck></FaCalendarCheck> My Booking</NavLink></li>
+          
+          
+          </>
+        }
+        
 
         <div className="divider"></div>
 
